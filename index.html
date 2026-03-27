@@ -2,90 +2,927 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Latent Textual Space</title>
+  <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
+  <!-- Replace the content tag with appropriate information -->
+  <meta name="description" content="DESCRIPTION META TAG">
+  <meta property="og:title" content="SOCIAL MEDIA TITLE TAG"/>
+  <meta property="og:description" content="SOCIAL MEDIA DESCRIPTION TAG TAG"/>
+  <meta property="og:url" content="URL OF THE WEBSITE"/>
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
+  <meta property="og:image" content="static/image/your_banner_image.png" />
+  <meta property="og:image:width" content="1500"/>
+  <meta property="og:image:height" content="630"/>
 
+
+  <meta name="twitter:title" content="TWITTER BANNER TITLE META TAG">
+  <meta name="twitter:description" content="TWITTER BANNER DESCRIPTION META TAG">
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
+  <meta name="twitter:image" content="static/images/your_twitter_banner_image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <!-- Keywords for your paper to be indexed by-->
+  <meta name="keywords" content="KEYWORDS SHOULD BE PLACED HERE">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  <title>Latent Textual Space: Pivot for Scaling Customized Text-to-Image and Video Generation</title>
+  <link rel="icon" type="image/x-icon" href="static/images/WIS.png">
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+  rel="stylesheet">
+
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script src="static/js/bulma-carousel.min.js"></script>
+  <script src="static/js/bulma-slider.min.js"></script>
+  <script src="static/js/index.js"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-
-  <style>
-    video {
-      width: 100%;
-      border-radius: 8px;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-      pointer-events: none;
-    }
-  </style>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.24/dist/css/bulma-carousel.min.css">
 </head>
-
 <body>
 
-<!-- ===== 标题 + 作者 ===== -->
-<section class="hero">
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">Latent Textual Space: Pivot for Scaling Customized Text-to-Image and Video Generation</h1>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">Jian Jin, Zhenbo Yu, Yang Shen, Zhenyong Fu, Jian Yang</span>
+                </div>
+            
+                  <div class="is-size-6 publication-authors">
+                    <span class="author-block"> </span>
+                  </div>
+
+                  <div class="column has-text-centered">
+                    <div class="publication-links">
+                      
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Paper poster -->
+<section class="hero is-light">
   <div class="hero-body">
-    <div class="container has-text-centered">
-      <h1 class="title is-2">
-        Latent Textual Space: Pivot for Scaling Customized Text-to-Image and Video Generation
-      </h1>
-      <p class="is-size-5">
-        Jian Jin, Zhenbo Yu, Yang Shen, Zhenyong Fu, Jian Yang
-      </p>
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column">
+          <h2 class="title is-3">Comparisons</h2>
+          <div class="content has-text-justified">
+
+            <!-- Subsection 3 -->
+            <h3 class="title is-4 has-text-centered">Customized T2V Generation</h3>
+            
+            <!-- ====== CASE 1 底色大框开始 ====== -->
+            <div style="background-color: #eef2f5; border-radius: 12px; padding: 3rem 1.5rem 1.5rem 1.5rem; position: relative; margin-top: 2rem; margin-bottom: 2rem;">
+              
+              <!-- 左上角 CASE 1 标签 -->
+              <div style="position: absolute; top: 0; left: 0; background-color: #363636; color: #fff; padding: 6px 16px; border-top-left-radius: 12px; border-bottom-right-radius: 12px; font-weight: bold; font-size: 1rem; letter-spacing: 1px;">
+                CASE 1
+              </div>
+
+              <!-- 第一排：三张图片，每张图片上方有标题 -->
+              <div class="columns is-centered has-text-centered">
+                <div class="column is-one-third">
+                  <h4 class="title is-6">V<sub>1</sub> dog</h4>
+                  <img src="videos/reference/dog.png" alt="Image 1" style="width: 100%; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);" />
+                </div>
+                <div class="column is-one-third">
+                  <h4 class="title is-6">V<sub>2</sub> sunglasses</h4>
+                  <img src="videos/reference/sunglasses.png" alt="Image 2" style="width: 100%; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);" />
+                </div>
+                <div class="column is-one-third">
+                  <h4 class="title is-6">V<sub>1</sub> castle</h4>
+                  <img src="videos/reference/castle.png" alt="Image 3" style="width: 100%; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);" />
+                </div>
+              </div>
+
+              <!-- 第二部分：视频网格（3行4列）标题 -->
+              <div class="columns is-centered has-text-centered mt-5" style="margin-bottom: 0;">
+                <div class="column is-one-quarter">
+                  <h4 class="title is-6">DreamVideo</h4>
+                </div>
+                <div class="column is-one-quarter">
+                  <h4 class="title is-6">DisenStudio</h4>
+                </div>
+                <div class="column is-one-quarter">
+                  <h4 class="title is-6">MotionBooth</h4>
+                </div>
+                <div class="column is-one-quarter">
+                  <h4 class="title is-6">LaTexBlend-V (Ours)</h4>
+                </div>
+              </div>
+
+              <!-- 视频第一行 -->
+              <div class="columns is-centered" style="margin-bottom: 0;">
+                <div class="column is-one-quarter">
+                  <video 
+                    autoplay 
+                    muted 
+                    playsinline 
+                    src="videos/vgen/dog_surfing_1.mp4"
+                    style="
+                      width: 100%;
+                      border-radius: 8px;
+                      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+                      pointer-events: none;
+                    ">
+                  </video>
+                  <script>
+                    document.querySelectorAll("video").forEach(video => {
+                      video.addEventListener("ended", () => {
+                        setTimeout(() => {
+                          video.currentTime = 0;  // 回到开头
+                          video.play();
+                        }, 2000); // ⏱ 停顿 1 秒（你可以改成 500 / 2000 等）
+                      });
+                    });
+                  </script>
+                </div>
+                <div class="column is-one-quarter">
+                  <video 
+                    autoplay 
+                    muted 
+                    playsinline 
+                    src="videos/DisenStudio/dog_surfing_1.mp4"
+                    style="
+                      width: 100%;
+                      border-radius: 8px;
+                      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+                      pointer-events: none;
+                    ">
+                  </video>
+                  <script>
+                    document.querySelectorAll("video").forEach(video => {
+                      video.addEventListener("ended", () => {
+                        setTimeout(() => {
+                          video.currentTime = 0;  // 回到开头
+                          video.play();
+                        }, 2000); // ⏱ 停顿 1 秒（你可以改成 500 / 2000 等）
+                      });
+                    });
+                  </script>
+                </div>
+                <div class="column is-one-quarter">
+                  <video 
+                    autoplay 
+                    muted 
+                    playsinline 
+                    src="videos/motionbooth/castle_castle_11.mp4"
+                    style="
+                      width: 100%;
+                      border-radius: 8px;
+                      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+                      pointer-events: none;
+                    ">
+                  </video>
+                  <script>
+                    document.querySelectorAll("video").forEach(video => {
+                      video.addEventListener("ended", () => {
+                        setTimeout(() => {
+                          video.currentTime = 0;  // 回到开头
+                          video.play();
+                        }, 2000); // ⏱ 停顿 1 秒（你可以改成 500 / 2000 等）
+                      });
+                    });
+                  </script>
+                </div>
+                <div class="column is-one-quarter">
+                  <video 
+                    autoplay 
+                    muted 
+                    playsinline 
+                    src="videos/LaTexBlend/case1_1.mp4"
+                    style="
+                      width: 100%;
+                      border-radius: 8px;
+                      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+                      pointer-events: none;
+                    "
+                    onloadedmetadata="this.playbackRate = 1;">
+                  </video>
+                  <script>
+                    document.querySelectorAll("video").forEach(video => {
+                      video.addEventListener("ended", () => {
+                        setTimeout(() => {
+                          video.currentTime = 0;  // 回到开头
+                          video.play();
+                        }, 2000); // ⏱ 停顿 1 秒（你可以改成 500 / 2000 等）
+                      });
+                    });
+                  </script>
+                </div> 
+              </div>
+
+              <!-- 视频第二行 -->
+              <div class="columns is-centered" style="margin-bottom: 0;">
+                <div class="column is-one-quarter">
+                  <video 
+                    autoplay 
+                    muted 
+                    playsinline 
+                    src="videos/vgen/dog_surfing_2.mp4"
+                    style="
+                      width: 100%;
+                      border-radius: 8px;
+                      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+                      pointer-events: none;
+                    ">
+                  </video>
+                  <script>
+                    document.querySelectorAll("video").forEach(video => {
+                      video.addEventListener("ended", () => {
+                        setTimeout(() => {
+                          video.currentTime = 0;  // 回到开头
+                          video.play();
+                        }, 2000); // ⏱ 停顿 1 秒（你可以改成 500 / 2000 等）
+                      });
+                    });
+                  </script>
+                </div>
+                <div class="column is-one-quarter">
+                  <video 
+                    autoplay 
+                    muted 
+                    playsinline 
+                    src="videos/DisenStudio/dog_surfing_2.mp4"
+                    style="
+                      width: 100%;
+                      border-radius: 8px;
+                      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+                      pointer-events: none;
+                    ">
+                  </video>
+                  <script>
+                    document.querySelectorAll("video").forEach(video => {
+                      video.addEventListener("ended", () => {
+                        setTimeout(() => {
+                          video.currentTime = 0;  // 回到开头
+                          video.play();
+                        }, 2000); // ⏱ 停顿 1 秒（你可以改成 500 / 2000 等）
+                      });
+                    });
+                  </script>
+                </div>
+                <div class="column is-one-quarter">
+                  <video 
+                    autoplay 
+                    muted 
+                    playsinline 
+                    src="videos/motionbooth/castle_castle_18.mp4"
+                    style="
+                      width: 100%;
+                      border-radius: 8px;
+                      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+                      pointer-events: none;
+                    ">
+                  </video>
+                  <script>
+                    document.querySelectorAll("video").forEach(video => {
+                      video.addEventListener("ended", () => {
+                        setTimeout(() => {
+                          video.currentTime = 0;  // 回到开头
+                          video.play();
+                        }, 2000); // ⏱ 停顿 1 秒（你可以改成 500 / 2000 等）
+                      });
+                    });
+                  </script>
+                </div>
+                <div class="column is-one-quarter">
+                  <video 
+                    autoplay 
+                    muted  
+                    playsinline 
+                    src="videos/LaTexBlend/case1_2.mp4"
+                    style="
+                      width: 100%;
+                      border-radius: 8px;
+                      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+                      pointer-events: none;
+                    "
+                    onloadedmetadata="this.playbackRate = 1;">
+                  </video>
+                  <script>
+                    document.querySelectorAll("video").forEach(video => {
+                      video.addEventListener("ended", () => {
+                        setTimeout(() => {
+                          video.currentTime = 0;  // 回到开头
+                          video.play();
+                        }, 2000); // ⏱ 停顿 1 秒（你可以改成 500 / 2000 等）
+                      });
+                    });
+                  </script>
+                </div>
+              </div>
+
+              <!-- 视频第三行 -->
+              <div class="columns is-centered">
+                <div class="column is-one-quarter">
+                  <video 
+                    autoplay 
+                    muted 
+                    playsinline 
+                    src="videos/vgen/dog_surfing_3.mp4"
+                    style="
+                      width: 100%;
+                      border-radius: 8px;
+                      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+                      pointer-events: none;
+                    ">
+                  </video>
+                  <script>
+                    document.querySelectorAll("video").forEach(video => {
+                      video.addEventListener("ended", () => {
+                        setTimeout(() => {
+                          video.currentTime = 0;  // 回到开头
+                          video.play();
+                        }, 2000); // ⏱ 停顿 1 秒（你可以改成 500 / 2000 等）
+                      });
+                    });
+                  </script>
+                </div>
+                <div class="column is-one-quarter">
+                  <video 
+                    autoplay 
+                    muted 
+                    playsinline 
+                    src="videos/DisenStudio/dog_surfing_3.mp4"
+                    style="
+                      width: 100%;
+                      border-radius: 8px;
+                      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+                      pointer-events: none;
+                    ">
+                  </video>
+                  <script>
+                    document.querySelectorAll("video").forEach(video => {
+                      video.addEventListener("ended", () => {
+                        setTimeout(() => {
+                          video.currentTime = 0;  // 回到开头
+                          video.play();
+                        }, 2000); // ⏱ 停顿 1 秒（你可以改成 500 / 2000 等）
+                      });
+                    });
+                  </script>
+                </div>
+                <div class="column is-one-quarter">
+                  <video 
+                    autoplay 
+                    muted 
+                    playsinline 
+                    src="videos/motionbooth/castle_castle_19.mp4"
+                    style="
+                      width: 100%;
+                      border-radius: 8px;
+                      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+                      pointer-events: none;
+                    ">
+                  </video>
+                  <script>
+                    document.querySelectorAll("video").forEach(video => {
+                      video.addEventListener("ended", () => {
+                        setTimeout(() => {
+                          video.currentTime = 0;  // 回到开头
+                          video.play();
+                        }, 2000); // ⏱ 停顿 1 秒（你可以改成 500 / 2000 等）
+                      });
+                    });
+                  </script>
+                </div>
+                <div class="column is-one-quarter">
+                  <video 
+                    autoplay 
+                    muted 
+                    playsinline 
+                    src="videos/LaTexBlend/case1_3.mp4"
+                    style="
+                      width: 100%;
+                      border-radius: 8px;
+                      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+                      pointer-events: none;
+                    "
+                    onloadedmetadata="this.playbackRate = 1;">
+                  </video>
+                  <script>
+                    document.querySelectorAll("video").forEach(video => {
+                      video.addEventListener("ended", () => {
+                        setTimeout(() => {
+                          video.currentTime = 0;  // 回到开头
+                          video.play();
+                        }, 2000); // ⏱ 停顿 1 秒（你可以改成 500 / 2000 等）
+                      });
+                    });
+                  </script>
+                </div>
+              </div>
+              <!-- 视频下方的小标题 Prompt -->
+              <div class="has-text-centered mt-4">
+                <p style="font-size: 1.15rem; font-weight: 600; font-family: 'Courier New', Courier, monospace; color: #2c3e50;">
+                  "prompt: A V<sub>1</sub> dog dog wearing a V<sub>2</sub> dog sunglasses, is surfing in the ocean, with a V<sub>3</sub> dog castle in the background."
+                </p>
+              </div>
+
+            </div>
+            <!-- ====== CASE 1 底色大框结束 ====== -->
+
+
+            <!-- ====== CASE 2 底色大框开始 ====== -->
+            <div style="background-color: #eef2f5; border-radius: 12px; padding: 3rem 1.5rem 1.5rem 1.5rem; position: relative; margin-bottom: 2rem;">
+              
+              <!-- 左上角 CASE 2 标签 -->
+              <div style="position: absolute; top: 0; left: 0; background-color: #363636; color: #fff; padding: 6px 16px; border-top-left-radius: 12px; border-bottom-right-radius: 12px; font-weight: bold; font-size: 1rem; letter-spacing: 1px;">
+                CASE 2
+              </div>
+
+              <!-- 第一排：三张图片，每张图片上方有标题 -->
+              <div class="columns is-centered has-text-centered">
+                <div class="column is-one-third">
+                  <h4 class="title is-6">V<sub>1</sub> lighthouse</h4>
+                  <img src="videos/reference/lighthouse.png" alt="Case 2 Image 1" style="width: 100%; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);" />
+                </div>
+                <div class="column is-one-third">
+                  <h4 class="title is-6">V<sub>2</sub> motorbike</h4>
+                  <img src="videos/reference/motorbike.png" alt="Case 2 Image 2" style="width: 100%; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);" />
+                </div>
+                <div class="column is-one-third">
+                  <h4 class="title is-6">V<sub>3</sub> teddybear</h4>
+                  <img src="videos/reference/teddybear.png" alt="Case 2 Image 3" style="width: 100%; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);" />
+                </div>
+              </div>
+
+              <!-- 第二部分：视频网格（3行4列）标题 -->
+              <div class="columns is-centered has-text-centered mt-5" style="margin-bottom: 0;">
+                <div class="column is-one-quarter">
+                  <h4 class="title is-6">DreamVideo</h4>
+                </div>
+                <div class="column is-one-quarter">
+                  <h4 class="title is-6">DisenStudio</h4>
+                </div>
+                <div class="column is-one-quarter">
+                  <h4 class="title is-6">MotionBooth</h4>
+                </div>
+                <div class="column is-one-quarter">
+                  <h4 class="title is-6">LaTexBlend-V (Ours)</h4>
+                </div>
+              </div>
+
+              <!-- 视频第一行 -->
+              <div class="columns is-centered" style="margin-bottom: 0;">
+                <div class="column is-one-quarter">
+                  <video 
+                    autoplay 
+                    muted 
+                    playsinline 
+                    src="videos/vgen/teddybear_moter_1.mp4"
+                    style="
+                      width: 100%;
+                      border-radius: 8px;
+                      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+                      pointer-events: none;
+                    ">
+                  </video>
+                  <script>
+                    document.querySelectorAll("video").forEach(video => {
+                      video.addEventListener("ended", () => {
+                        setTimeout(() => {
+                          video.currentTime = 0;  // 回到开头
+                          video.play();
+                        }, 2000); // ⏱ 停顿 1 秒（你可以改成 500 / 2000 等）
+                      });
+                    });
+                  </script>
+                </div>
+                <div class="column is-one-quarter">
+                  <video 
+                    autoplay 
+                    muted 
+                    playsinline 
+                    src="videos/DisenStudio/teddybear_motor_1.mp4"
+                    style="
+                      width: 100%;
+                      border-radius: 8px;
+                      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+                      pointer-events: none;
+                    ">
+                  </video>
+                  <script>
+                    document.querySelectorAll("video").forEach(video => {
+                      video.addEventListener("ended", () => {
+                        setTimeout(() => {
+                          video.currentTime = 0;  // 回到开头
+                          video.play();
+                        }, 2000); // ⏱ 停顿 1 秒（你可以改成 500 / 2000 等）
+                      });
+                    });
+                  </script>
+                </div>
+                <div class="column is-one-quarter">
+                  <video 
+                    autoplay 
+                    muted 
+                    playsinline 
+                    src="videos/motionbooth/lighthouse_lighthouse_26.mp4"
+                    style="
+                      width: 100%;
+                      border-radius: 8px;
+                      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+                      pointer-events: none;
+                    ">
+                  </video>
+                  <script>
+                    document.querySelectorAll("video").forEach(video => {
+                      video.addEventListener("ended", () => {
+                        setTimeout(() => {
+                          video.currentTime = 0;  // 回到开头
+                          video.play();
+                        }, 2000); // ⏱ 停顿 1 秒（你可以改成 500 / 2000 等）
+                      });
+                    });
+                  </script>
+                </div>
+                <div class="column is-one-quarter">
+                  <video 
+                    autoplay 
+                    muted 
+                    playsinline 
+                    src="videos/LaTexBlend/case2_1.mp4"
+                    style="
+                      width: 100%;
+                      border-radius: 8px;
+                      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+                      pointer-events: none;
+                    "
+                    onloadedmetadata="this.playbackRate = 1;">
+                  </video>
+                  <script>
+                    document.querySelectorAll("video").forEach(video => {
+                      video.addEventListener("ended", () => {
+                        setTimeout(() => {
+                          video.currentTime = 0;  // 回到开头
+                          video.play();
+                        }, 2000); // ⏱ 停顿 1 秒（你可以改成 500 / 2000 等）
+                      });
+                    });
+                  </script>
+                </div>
+              </div>
+
+              <!-- 视频第二行 -->
+              <div class="columns is-centered" style="margin-bottom: 0;">
+                <div class="column is-one-quarter">
+                  <video 
+                    autoplay 
+                    muted 
+                    playsinline 
+                    src="videos/vgen/teddybear_moter_2.mp4"
+                    style="
+                      width: 100%;
+                      border-radius: 8px;
+                      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+                      pointer-events: none;
+                    ">
+                  </video>
+                  <script>
+                    document.querySelectorAll("video").forEach(video => {
+                      video.addEventListener("ended", () => {
+                        setTimeout(() => {
+                          video.currentTime = 0;  // 回到开头
+                          video.play();
+                        }, 2000); // ⏱ 停顿 1 秒（你可以改成 500 / 2000 等）
+                      });
+                    });
+                  </script>
+                </div>
+                <div class="column is-one-quarter">
+                  <video 
+                    autoplay 
+                    muted 
+                    playsinline 
+                    src="videos/DisenStudio/teddybear_motor_2.mp4"
+                    style="
+                      width: 100%;
+                      border-radius: 8px;
+                      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+                      pointer-events: none;
+                    ">
+                  </video>
+                  <script>
+                    document.querySelectorAll("video").forEach(video => {
+                      video.addEventListener("ended", () => {
+                        setTimeout(() => {
+                          video.currentTime = 0;  // 回到开头
+                          video.play();
+                        }, 2000); // ⏱ 停顿 1 秒（你可以改成 500 / 2000 等）
+                      });
+                    });
+                  </script>
+                </div>
+                <div class="column is-one-quarter">
+                  <video 
+                    autoplay 
+                    muted 
+                    playsinline 
+                    src="videos/motionbooth/lighthouse_lighthouse_31.mp4"
+                    style="
+                      width: 100%;
+                      border-radius: 8px;
+                      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+                      pointer-events: none;
+                    ">
+                  </video>
+                  <script>
+                    document.querySelectorAll("video").forEach(video => {
+                      video.addEventListener("ended", () => {
+                        setTimeout(() => {
+                          video.currentTime = 0;  // 回到开头
+                          video.play();
+                        }, 2000); // ⏱ 停顿 1 秒（你可以改成 500 / 2000 等）
+                      });
+                    });
+                  </script>
+                </div>
+                <div class="column is-one-quarter">
+                  <video 
+                    autoplay 
+                    muted  
+                    playsinline 
+                    src="videos/LaTexBlend/case2_2.mp4"
+                    style="
+                      width: 100%;
+                      border-radius: 8px;
+                      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+                      pointer-events: none;
+                    "
+                    onloadedmetadata="this.playbackRate = 1;">
+                  </video>
+                  <script>
+                    document.querySelectorAll("video").forEach(video => {
+                      video.addEventListener("ended", () => {
+                        setTimeout(() => {
+                          video.currentTime = 0;  // 回到开头
+                          video.play();
+                        }, 2000); // ⏱ 停顿 1 秒（你可以改成 500 / 2000 等）
+                      });
+                    });
+                  </script>
+                </div>
+              </div>
+
+              <!-- 视频第三行 -->
+              <div class="columns is-centered">
+                <div class="column is-one-quarter">
+                  <video 
+                    autoplay 
+                    muted 
+                    playsinline 
+                    src="videos/vgen/teddybear_moter_3.mp4"
+                    style="
+                      width: 100%;
+                      border-radius: 8px;
+                      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+                      pointer-events: none;
+                    ">
+                  </video>
+                  <script>
+                    document.querySelectorAll("video").forEach(video => {
+                      video.addEventListener("ended", () => {
+                        setTimeout(() => {
+                          video.currentTime = 0;  // 回到开头
+                          video.play();
+                        }, 2000); // ⏱ 停顿 1 秒（你可以改成 500 / 2000 等）
+                      });
+                    });
+                  </script>
+                </div>
+                <div class="column is-one-quarter">
+                  <video 
+                    autoplay 
+                    muted 
+                    playsinline 
+                    src="videos/DisenStudio/teddybear_motor_3.mp4"
+                    style="
+                      width: 100%;
+                      border-radius: 8px;
+                      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+                      pointer-events: none;
+                    ">
+                  </video>
+                  <script>
+                    document.querySelectorAll("video").forEach(video => {
+                      video.addEventListener("ended", () => {
+                        setTimeout(() => {
+                          video.currentTime = 0;  // 回到开头
+                          video.play();
+                        }, 2000); // ⏱ 停顿 1 秒（你可以改成 500 / 2000 等）
+                      });
+                    });
+                  </script>
+                </div>
+                <div class="column is-one-quarter">
+                  <video 
+                    autoplay 
+                    muted 
+                    playsinline 
+                    src="videos/motionbooth/lighthouse_lighthouse_35.mp4"
+                    style="
+                      width: 100%;
+                      border-radius: 8px;
+                      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+                      pointer-events: none;
+                    ">
+                  </video>
+                  <script>
+                    document.querySelectorAll("video").forEach(video => {
+                      video.addEventListener("ended", () => {
+                        setTimeout(() => {
+                          video.currentTime = 0;  // 回到开头
+                          video.play();
+                        }, 2000); // ⏱ 停顿 1 秒（你可以改成 500 / 2000 等）
+                      });
+                    });
+                  </script>
+                </div>
+                <div class="column is-one-quarter">
+                  <video 
+                    autoplay 
+                    muted 
+                    playsinline 
+                    src="videos/LaTexBlend/case2_3.mp4"
+                    style="
+                      width: 100%;
+                      border-radius: 8px;
+                      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+                      pointer-events: none;
+                    "
+                    onloadedmetadata="this.playbackRate = 1;">
+                  </video>
+                  <script>
+                    document.querySelectorAll("video").forEach(video => {
+                      video.addEventListener("ended", () => {
+                        setTimeout(() => {
+                          video.currentTime = 0;  // 回到开头
+                          video.play();
+                        }, 2000); // ⏱ 停顿 1 秒（你可以改成 500 / 2000 等）
+                      });
+                    });
+                  </script>
+                </div>
+              </div>
+
+              <!-- 视频下方的小标题 Prompt -->
+              <div class="has-text-centered mt-4">
+                <p style="font-size: 1.15rem; font-weight: 600; font-family: 'Courier New', Courier, monospace; color: #2c3e50;">
+                  "prompt: A V<sub>3</sub> teddybear driving a V<sub>2</sub> motorbike past a V<sub>1</sub> lighthouse."
+                </p>
+              </div>
+
+            </div>
+            <!-- ====== CASE 2 底色大框结束 ====== -->
+
+            <!-- 整个 Subsection 的底部文字说明 -->
+            <div class="has-text-left mt-3" style="font-size: 13px;">
+              <p style="font-weight: bold; text-align: center; margin-bottom: 4px;">
+                Visual comparison of customized T2V generation.
+              </p>
+              <p style="text-align: left; margin: 0;">
+                Baselines fail to accurately render subject appearance or follow the motion and context instructed by the prompts.
+                LaTexBlend-V can generate customized subjects in target contexts with natural motion, while preserving precise subject appearances.
+              </p>
+            </div>
+
+
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
+<!-- End paper poster -->
 
-<!-- ===== 视频展示（只保留最后部分） ===== -->
-<section class="section">
+<!--BibTex citation -->
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title">BibTeX</h2>
+       <p>
+        This work expands upon our conference paper in CVPR 2025:
+      </p>
+      <pre><code>@inproceedings{jin2025latexblend,
+        title={LatexBlend: Scaling Multi-concept Customized Generation with Latent Textual Blending},
+        author={Jin, Jian and Zhenbo, Yu and Yang, Shen and Fu, Zhenyong and Yang, Jian},
+        booktitle={Proceedings of the IEEE/CVF conference on computer vision and pattern recognition},
+        year={2025}
+      }</code></pre>
+    </div>
+</section>
+<!--End BibTex citation -->
+
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column custom-width">
+          <!-- <h2 class="title is-3"></h2> -->
+          <div class="content has-text-justified">
+  <p>
+    <a name="ref-ebsynth" id="ref-ebsynth"></a>
+    <!-- [6] Gwanghyun Kim, Taesung Kwon, and Jong Chul Ye. Diffusionclip: Text-guided diffusion models for robust image manipulation. In Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition, 2022. -->
+  </p>
+  </div>
+        </div>
+      </div>
+    </div>  
+  <footer class="footer">
   <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
 
-    <h2 class="title is-3 has-text-centered">Customized T2V Generation</h2>
+          <p>
+            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a>.
+            You are free to borrow the of this website, we just ask that you link back to this page in the footer. <br> This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
 
-    <!-- ===== CASE 1 ===== -->
-    <div style="background:#eef2f5; padding:2rem; border-radius:12px; margin-bottom:2rem;">
-
-      <h3 class="title is-5">CASE 1</h3>
-
-      <div class="columns">
-        <div class="column"><video autoplay muted playsinline src="videos/vgen/dog_surfing_1.mp4"></video></div>
-        <div class="column"><video autoplay muted playsinline src="videos/DisenStudio/dog_surfing_1.mp4"></video></div>
-        <div class="column"><video autoplay muted playsinline src="videos/motionbooth/castle_castle_11.mp4"></video></div>
-        <div class="column"><video autoplay muted playsinline src="videos/LaTexBlend/case1_1.mp4"></video></div>
+        </div>
       </div>
-
-      <p class="has-text-centered">
-        prompt: A dog wearing sunglasses surfing with a castle in background
-      </p>
     </div>
-
-    <!-- ===== CASE 2 ===== -->
-    <div style="background:#eef2f5; padding:2rem; border-radius:12px;">
-
-      <h3 class="title is-5">CASE 2</h3>
-
-      <div class="columns">
-        <div class="column"><video autoplay muted playsinline src="videos/vgen/teddybear_moter_1.mp4"></video></div>
-        <div class="column"><video autoplay muted playsinline src="videos/DisenStudio/teddybear_motor_1.mp4"></video></div>
-        <div class="column"><video autoplay muted playsinline src="videos/motionbooth/lighthouse_lighthouse_26.mp4"></video></div>
-        <div class="column"><video autoplay muted playsinline src="videos/LaTexBlend/case2_1.mp4"></video></div>
-      </div>
-
-      <p class="has-text-centered">
-        prompt: A teddy bear driving a motorbike past a lighthouse
-      </p>
-    </div>
-
   </div>
-</section>
+</footer>
 
-<!-- ===== 循环 + 停顿控制（全局一次即可） ===== -->
+<!-- Statcounter tracking code -->
+  
+<!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
+
+    <!-- End of Statcounter Code -->
+    <script>
+      window.addEventListener('DOMContentLoaded', (event) => {
+        const videoWrappers = document.querySelectorAll('.video-wrapper');
+      
+        videoWrappers.forEach(wrapper => {
+          const defaultVideo = wrapper.querySelector('.default-video');
+          const aspectRatio = defaultVideo.videoWidth / defaultVideo.videoHeight;
+          const height = wrapper.offsetWidth / aspectRatio;
+      
+          wrapper.style.height = `${height}px`;
+      
+          wrapper.addEventListener('mouseenter', () => {
+            defaultVideo.pause();
+            hoverVideo.play();
+          });
+      
+          wrapper.addEventListener('mouseleave', () => {
+            defaultVideo.play();
+            hoverVideo.pause();
+          });
+        });
+      }); 
+      $(document).ready(function() {
+        var carouselItems = $('.carousel .item');
+        var numItems = carouselItems.length;
+        var numVideos = 5;
+        var currentIndex = 0;
+    
+        $('.carousel').on('click', function() {
+          currentIndex++;
+          if (currentIndex + numVideos <= numItems) {
+            carouselItems.removeClass('active');
+            carouselItems.slice(currentIndex, currentIndex + numVideos).addClass('active');
+          } else {
+            currentIndex = 0;
+            carouselItems.removeClass('active');
+            carouselItems.slice(currentIndex, currentIndex + numVideos).addClass('active');
+          }
+        });
+    
+        carouselItems.slice(currentIndex, currentIndex + numVideos).addClass('active');
+      });
+    </script>
+
+  <!-- 引入 Bulma Carousel JS -->
+<script src="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.24/dist/js/bulma-carousel.min.js"></script>
 <script>
-document.querySelectorAll("video").forEach(video => {
-  video.addEventListener("ended", () => {
-    setTimeout(() => {
-      video.currentTime = 0;
-      video.play();
-    }, 2000); // 停 2 秒
+  // 初始化页面上所有的轮播组件
+  bulmaCarousel.attach('#t2vCarousel', {
+      slidesToScroll: 1,
+      slidesToShow: 1,
+      infinite: true, // 循环播放
+      autoplay: true,
+      autoplaySpeed: 5000,
   });
-});
 </script>
-
+    
 </body>
 </html>
