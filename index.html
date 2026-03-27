@@ -166,7 +166,7 @@
             
             <!-- 第二部分：视频网格（2行3列）标题 -->
             <div class="has-text-centered mt-5" style="margin-bottom: 0;">
-              <h4 class="title is-5" style="font-weight: 600;">LaTexBlend-V</h4>
+              <h4 class="title is-6" style="font-weight: 600;">LaTexBlend-V</h4>
             </div>
             
             <!-- 视频第二行 -->
@@ -293,7 +293,7 @@
             <div class="columns is-centered" style="margin-bottom: 0;">
               <div class="column is-one-third">
                 <video 
-                  id="video1-1"
+                  autoplay 
                   muted 
                   playsinline 
                   src="videos/LaTexBlend/case2_1_pre_trained.mp4"
@@ -307,7 +307,7 @@
               </div>
               <div class="column is-one-third">
                 <video 
-                  id="video1-2"
+                  autoplay 
                   muted 
                   playsinline 
                   src="videos/LaTexBlend/case2_2_pre_trained.mp4"
@@ -321,7 +321,7 @@
               </div>
               <div class="column is-one-third">
                 <video 
-                  id="video1-3"
+                  autoplay 
                   muted 
                   playsinline 
                   src="videos/LaTexBlend/case2_3_pre_trained.mp4"
@@ -334,17 +334,17 @@
                 </video>
               </div>
             </div>
-            
+
             <!-- 第二部分：视频网格（2行3列）标题 -->
             <div class="has-text-centered mt-5" style="margin-bottom: 0;">
-              <h4 class="title is-5" style="font-weight: 600;">LaTexBlend-V</h4>
+              <h4 class="title is-6" style="font-weight: 600;">LaTexBlend-V</h4>
             </div>
-            
+
             <!-- 视频第二行 -->
             <div class="columns is-centered" style="margin-bottom: 0;">
               <div class="column is-one-third">
                 <video 
-                  id="video2-1"
+                  autoplay 
                   muted 
                   playsinline 
                   src="videos/LaTexBlend/case2_1.mp4"
@@ -358,7 +358,7 @@
               </div>
               <div class="column is-one-third">
                 <video 
-                  id="video2-2"
+                  autoplay 
                   muted 
                   playsinline 
                   src="videos/LaTexBlend/case2_2.mp4"
@@ -372,7 +372,7 @@
               </div>
               <div class="column is-one-third">
                 <video 
-                  id="video2-3"
+                  autoplay 
                   muted 
                   playsinline 
                   src="videos/LaTexBlend/case2_3.mp4"
@@ -385,39 +385,6 @@
                 </video>
               </div>
             </div>
-            
-            <script>
-              // 等待所有视频准备好后同步播放同列的视频
-              window.addEventListener('DOMContentLoaded', () => {
-                const videoRow1 = [
-                  document.getElementById('video1-1'),
-                  document.getElementById('video1-2'),
-                  document.getElementById('video1-3')
-                ];
-            
-                const videoRow2 = [
-                  document.getElementById('video2-1'),
-                  document.getElementById('video2-2'),
-                  document.getElementById('video2-3')
-                ];
-            
-                // 确保第一行的视频已准备好
-                Promise.all(videoRow1.map(video => new Promise(resolve => {
-                  video.oncanplaythrough = resolve;
-                })))
-                .then(() => {
-                  // 同步播放同列的视频
-                  videoRow1.forEach((video, index) => {
-                    // 确保第一行视频播放
-                    video.play();
-            
-                    // 同步设置第二行视频的播放时间
-                    videoRow2[index].currentTime = video.currentTime;
-                    videoRow2[index].play();
-                  });
-                });
-              });
-            </script>
 
             <!-- 视频下方的小标题 Prompt -->
             <div class="has-text-centered mt-4">
