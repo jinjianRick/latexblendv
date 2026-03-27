@@ -74,79 +74,392 @@
   </div>
 </section>
 
-<!-- ====== New Section ====== -->
+<!-- 新的Section -->
 <section class="hero is-light">
   <div class="hero-body">
     <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column">
+          <h2 class="title is-3">Customized T2V Generation - New Case Studies</h2>
+          <p class="content has-text-justified">
+            In this section, we present additional case studies with customized text-to-video (T2V) generation, showcasing how LaTexBlend-V performs in diverse scenarios.
+          </p>
+          
+          <!-- ====== CASE 1 底色大框开始 ====== -->
+          <div style="background-color: #eef2f5; border-radius: 12px; padding: 3rem 1.5rem 1.5rem 1.5rem; position: relative; margin-top: 2rem;">
+            
+            <!-- 左上角 CASE 1 标签 -->
+            <div style="position: absolute; top: 0; left: 0; background-color: #363636; color: #fff; padding: 6px 16px; border-top-left-radius: 12px; border-bottom-right-radius: 12px; font-weight: bold; font-size: 1rem; letter-spacing: 1px;">
+              CASE 1
+            </div>
 
-      <!-- 顶部标题 + 描述 -->
-      <div class="has-text-centered mb-5">
-        <h2 class="title is-3">Customized T2V Generation (Additional Results)</h2>
-        <p style="max-width: 800px; margin: 0 auto; font-size: 15px;">
-          We present additional qualitative results to further demonstrate the effectiveness of our method.
-          Compared to existing approaches, our method better preserves subject identity while maintaining
-          consistent motion and scene coherence across diverse scenarios.
-        </p>
+            <!-- 第一排：三张图片，每张图片上方有标题 -->
+            <div class="columns is-centered has-text-centered">
+              <div class="column is-one-third">
+                <h4 class="title is-6">V<sub>1</sub> dog</h4>
+                <img src="videos/reference/dog.png" alt="Image 1" style="width: 100%; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);" />
+              </div>
+              <div class="column is-one-third">
+                <h4 class="title is-6">V<sub>2</sub> sunglasses</h4>
+                <img src="videos/reference/sunglasses.png" alt="Image 2" style="width: 100%; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);" />
+              </div>
+              <div class="column is-one-third">
+                <h4 class="title is-6">V<sub>1</sub> castle</h4>
+                <img src="videos/reference/castle.png" alt="Image 3" style="width: 100%; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);" />
+              </div>
+            </div>
+
+            <!-- 第二部分：视频网格（2行3列）标题 -->
+            <div class="columns is-centered has-text-centered mt-5" style="margin-bottom: 0;">
+              <div class="column is-one-third">
+                <h4 class="title is-6">DreamVideo</h4>
+              </div>
+              <div class="column is-one-third">
+                <h4 class="title is-6">DisenStudio</h4>
+              </div>
+              <div class="column is-one-third">
+                <h4 class="title is-6">LaTexBlend-V (Ours)</h4>
+              </div>
+            </div>
+
+            <!-- 视频第一行 -->
+            <div class="columns is-centered" style="margin-bottom: 0;">
+              <div class="column is-one-third">
+                <video 
+                  autoplay 
+                  muted 
+                  playsinline 
+                  src="videos/vgen/dog_surfing_1.mp4"
+                  style="
+                    width: 100%;
+                    border-radius: 8px;
+                    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+                    pointer-events: none;
+                  ">
+                </video>
+              </div>
+              <div class="column is-one-third">
+                <video 
+                  autoplay 
+                  muted 
+                  playsinline 
+                  src="videos/DisenStudio/dog_surfing_1.mp4"
+                  style="
+                    width: 100%;
+                    border-radius: 8px;
+                    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+                    pointer-events: none;
+                  ">
+                </video>
+              </div>
+              <div class="column is-one-third">
+                <video 
+                  autoplay 
+                  muted 
+                  playsinline 
+                  src="videos/LaTexBlend/case1_1.mp4"
+                  style="
+                    width: 100%;
+                    border-radius: 8px;
+                    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+                    pointer-events: none;
+                  ">
+                </video>
+              </div>
+            </div>
+
+            <!-- 视频第二行 -->
+            <div class="columns is-centered" style="margin-bottom: 0;">
+              <div class="column is-one-third">
+                <video 
+                  autoplay 
+                  muted 
+                  playsinline 
+                  src="videos/vgen/dog_surfing_2.mp4"
+                  style="
+                    width: 100%;
+                    border-radius: 8px;
+                    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+                    pointer-events: none;
+                  ">
+                </video>
+              </div>
+              <div class="column is-one-third">
+                <video 
+                  autoplay 
+                  muted 
+                  playsinline 
+                  src="videos/DisenStudio/dog_surfing_2.mp4"
+                  style="
+                    width: 100%;
+                    border-radius: 8px;
+                    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+                    pointer-events: none;
+                  ">
+                </video>
+              </div>
+              <div class="column is-one-third">
+                <video 
+                  autoplay 
+                  muted 
+                  playsinline 
+                  src="videos/LaTexBlend/case1_2.mp4"
+                  style="
+                    width: 100%;
+                    border-radius: 8px;
+                    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+                    pointer-events: none;
+                  ">
+                </video>
+              </div>
+            </div>
+
+            <!-- 视频第三行 -->
+            <div class="columns is-centered" style="margin-bottom: 0;">
+              <div class="column is-one-third">
+                <video 
+                  autoplay 
+                  muted 
+                  playsinline 
+                  src="videos/vgen/dog_surfing_3.mp4"
+                  style="
+                    width: 100%;
+                    border-radius: 8px;
+                    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+                    pointer-events: none;
+                  ">
+                </video>
+              </div>
+              <div class="column is-one-third">
+                <video 
+                  autoplay 
+                  muted 
+                  playsinline 
+                  src="videos/DisenStudio/dog_surfing_3.mp4"
+                  style="
+                    width: 100%;
+                    border-radius: 8px;
+                    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+                    pointer-events: none;
+                  ">
+                </video>
+              </div>
+              <div class="column is-one-third">
+                <video 
+                  autoplay 
+                  muted 
+                  playsinline 
+                  src="videos/LaTexBlend/case1_3.mp4"
+                  style="
+                    width: 100%;
+                    border-radius: 8px;
+                    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+                    pointer-events: none;
+                  ">
+                </video>
+              </div>
+            </div>
+
+            <!-- 视频下方的小标题 Prompt -->
+            <div class="has-text-centered mt-4">
+              <p style="font-size: 1.15rem; font-weight: 600; font-family: 'Courier New', Courier, monospace; color: #2c3e50;">
+                "prompt: A V<sub>1</sub> dog wearing V<sub>2</sub> sunglasses, surfing in the ocean with a V<sub>3</sub> castle in the background."
+              </p>
+            </div>
+
+          </div>
+          <!-- ====== CASE 1 底色大框结束 ====== -->
+
+          <!-- ====== CASE 2 底色大框开始 ====== -->
+          <div style="background-color: #eef2f5; border-radius: 12px; padding: 3rem 1.5rem 1.5rem 1.5rem; position: relative; margin-bottom: 2rem;">
+            <div style="position: absolute; top: 0; left: 0; background-color: #363636; color: #fff; padding: 6px 16px; border-top-left-radius: 12px; border-bottom-right-radius: 12px; font-weight: bold; font-size: 1rem; letter-spacing: 1px;">
+              CASE 2
+            </div>
+
+            <!-- 第一排：三张图片，每张图片上方有标题 -->
+            <div class="columns is-centered has-text-centered">
+              <div class="column is-one-third">
+                <h4 class="title is-6">V<sub>1</sub> dog</h4>
+                <img src="videos/reference/dog.png" alt="Image 1" style="width: 100%; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);" />
+              </div>
+              <div class="column is-one-third">
+                <h4 class="title is-6">V<sub>2</sub> sunglasses</h4>
+                <img src="videos/reference/sunglasses.png" alt="Image 2" style="width: 100%; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);" />
+              </div>
+              <div class="column is-one-third">
+                <h4 class="title is-6">V<sub>1</sub> castle</h4>
+                <img src="videos/reference/castle.png" alt="Image 3" style="width: 100%; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);" />
+              </div>
+            </div>
+
+            <!-- 第二部分：视频网格（2行3列）标题 -->
+            <div class="columns is-centered has-text-centered mt-5" style="margin-bottom: 0;">
+              <div class="column is-one-third">
+                <h4 class="title is-6">DreamVideo</h4>
+              </div>
+              <div class="column is-one-third">
+                <h4 class="title is-6">DisenStudio</h4>
+              </div>
+              <div class="column is-one-third">
+                <h4 class="title is-6">LaTexBlend-V (Ours)</h4>
+              </div>
+            </div>
+
+            <!-- 视频第一行 -->
+            <div class="columns is-centered" style="margin-bottom: 0;">
+              <div class="column is-one-third">
+                <video 
+                  autoplay 
+                  muted 
+                  playsinline 
+                  src="videos/vgen/dog_surfing_1.mp4"
+                  style="
+                    width: 100%;
+                    border-radius: 8px;
+                    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+                    pointer-events: none;
+                  ">
+                </video>
+              </div>
+              <div class="column is-one-third">
+                <video 
+                  autoplay 
+                  muted 
+                  playsinline 
+                  src="videos/DisenStudio/dog_surfing_1.mp4"
+                  style="
+                    width: 100%;
+                    border-radius: 8px;
+                    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+                    pointer-events: none;
+                  ">
+                </video>
+              </div>
+              <div class="column is-one-third">
+                <video 
+                  autoplay 
+                  muted 
+                  playsinline 
+                  src="videos/LaTexBlend/case1_1.mp4"
+                  style="
+                    width: 100%;
+                    border-radius: 8px;
+                    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+                    pointer-events: none;
+                  ">
+                </video>
+              </div>
+            </div>
+
+            <!-- 视频第二行 -->
+            <div class="columns is-centered" style="margin-bottom: 0;">
+              <div class="column is-one-third">
+                <video 
+                  autoplay 
+                  muted 
+                  playsinline 
+                  src="videos/vgen/dog_surfing_2.mp4"
+                  style="
+                    width: 100%;
+                    border-radius: 8px;
+                    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+                    pointer-events: none;
+                  ">
+                </video>
+              </div>
+              <div class="column is-one-third">
+                <video 
+                  autoplay 
+                  muted 
+                  playsinline 
+                  src="videos/DisenStudio/dog_surfing_2.mp4"
+                  style="
+                    width: 100%;
+                    border-radius: 8px;
+                    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+                    pointer-events: none;
+                  ">
+                </video>
+              </div>
+              <div class="column is-one-third">
+                <video 
+                  autoplay 
+                  muted 
+                  playsinline 
+                  src="videos/LaTexBlend/case1_2.mp4"
+                  style="
+                    width: 100%;
+                    border-radius: 8px;
+                    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+                    pointer-events: none;
+                  ">
+                </video>
+              </div>
+            </div>
+
+            <!-- 视频第三行 -->
+            <div class="columns is-centered" style="margin-bottom: 0;">
+              <div class="column is-one-third">
+                <video 
+                  autoplay 
+                  muted 
+                  playsinline 
+                  src="videos/vgen/dog_surfing_3.mp4"
+                  style="
+                    width: 100%;
+                    border-radius: 8px;
+                    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+                    pointer-events: none;
+                  ">
+                </video>
+              </div>
+              <div class="column is-one-third">
+                <video 
+                  autoplay 
+                  muted 
+                  playsinline 
+                  src="videos/DisenStudio/dog_surfing_3.mp4"
+                  style="
+                    width: 100%;
+                    border-radius: 8px;
+                    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+                    pointer-events: none;
+                  ">
+                </video>
+              </div>
+              <div class="column is-one-third">
+                <video 
+                  autoplay 
+                  muted 
+                  playsinline 
+                  src="videos/LaTexBlend/case1_3.mp4"
+                  style="
+                    width: 100%;
+                    border-radius: 8px;
+                    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+                    pointer-events: none;
+                  ">
+                </video>
+              </div>
+            </div>
+
+            <!-- 视频下方的小标题 Prompt -->
+            <div class="has-text-centered mt-4">
+              <p style="font-size: 1.15rem; font-weight: 600; font-family: 'Courier New', Courier, monospace; color: #2c3e50;">
+                "prompt: A V<sub>1</sub> dog wearing V<sub>2</sub> sunglasses, surfing in the ocean with a V<sub>3</sub> castle in the background."
+              </p>
+            </div>
+
+            <!-- 视频展示与CASE 1相同，修改为第二个案例 -->
+            <!-- Add videos and description in the same format for Case 2 -->
+
+          </div>
+          <!-- ====== CASE 2 底色大框结束 ====== -->
+        </div>
       </div>
-
-      <!-- ====== 大框 ====== -->
-      <div style="background-color: #eef2f5; border-radius: 12px; padding: 2.5rem 1.5rem;">
-
-        <!-- ===== 第一行标题 ===== -->
-        <div class="has-text-centered mb-3">
-          <h3 class="title is-5">Scene 1: Multi-Concept Interaction</h3>
-        </div>
-
-        <!-- ===== 第一行视频（3列）===== -->
-        <div class="columns is-centered mb-4">
-          <div class="column is-one-third">
-            <video autoplay muted playsinline src="videos/example1_1.mp4"
-              style="width:100%; border-radius:8px; box-shadow:0 2px 4px rgba(0,0,0,0.1);">
-            </video>
-          </div>
-          <div class="column is-one-third">
-            <video autoplay muted playsinline src="videos/example1_2.mp4"
-              style="width:100%; border-radius:8px; box-shadow:0 2px 4px rgba(0,0,0,0.1);">
-            </video>
-          </div>
-          <div class="column is-one-third">
-            <video autoplay muted playsinline src="videos/example1_3.mp4"
-              style="width:100%; border-radius:8px; box-shadow:0 2px 4px rgba(0,0,0,0.1);">
-            </video>
-          </div>
-        </div>
-
-        <!-- ===== 第二行标题 ===== -->
-        <div class="has-text-centered mb-3">
-          <h3 class="title is-5">Scene 2: Complex Motion and Layout</h3>
-        </div>
-
-        <!-- ===== 第二行视频（3列）===== -->
-        <div class="columns is-centered">
-          <div class="column is-one-third">
-            <video autoplay muted playsinline src="videos/example2_1.mp4"
-              style="width:100%; border-radius:8px; box-shadow:0 2px 4px rgba(0,0,0,0.1);">
-            </video>
-          </div>
-          <div class="column is-one-third">
-            <video autoplay muted playsinline src="videos/example2_2.mp4"
-              style="width:100%; border-radius:8px; box-shadow:0 2px 4px rgba(0,0,0,0.1);">
-            </video>
-          </div>
-          <div class="column is-one-third">
-            <video autoplay muted playsinline src="videos/example2_3.mp4"
-              style="width:100%; border-radius:8px; box-shadow:0 2px 4px rgba(0,0,0,0.1);">
-            </video>
-          </div>
-        </div>
-
-      </div>
-      <!-- ====== 大框结束 ====== -->
-
     </div>
   </div>
 </section>
-<!-- ====== End New Section ====== -->
 
 <!-- Paper poster -->
 <section class="hero is-light">
