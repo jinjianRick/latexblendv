@@ -80,9 +80,12 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered has-text-centered">
         <div class="column">
-          <h2 class="title is-3">Customized T2V Generation - New Case Studies</h2>
+          <h2 class="title is-3">Comparison with the Pre-trained Model</h2>
           <p class="content has-text-justified">
-            In this section, we present additional case studies with customized text-to-video (T2V) generation, showcasing how LaTexBlend-V performs in diverse scenarios.
+            As stated in Section III.B of the manuscript, a key merit of LTS lies in its structural preservation capability and precise spatial–semantic 
+            correspondence. By leveraging these merits of LTS and the inherent denoising characteristics of diffusion models, LaTexBlend-v maintains the 
+            original motion and layout of the pre-trained model while seamlessly injecting the subject's identity.
+            Therefore, LaTexBlend-v alleviates the motion and structure degradation exhibited by previous inflated customized T2V methods.
           </p>
           
           <!-- ====== CASE 1 底色大框开始 ====== -->
@@ -112,17 +115,17 @@
 
             <!-- 第二部分：视频网格（2行3列）标题 -->
             <div class="has-text-centered mt-5" style="margin-bottom: 0;">
-              <h4 class="title is-4" style="font-weight: 600;">Pre-trained Model</h4>
+              <h4 class="title is-5" style="font-weight: 600;">Pre-trained Model</h4>
             </div>
 
             <!-- 视频第一行 -->
             <div class="columns is-centered" style="margin-bottom: 0;">
               <div class="column is-one-third">
                 <video 
-                  autoplay 
+                  id="video1-1"
                   muted 
                   playsinline 
-                  src="videos/LaTexBlend/case1_1_pre_trained.mp4"
+                  src="videos/LaTexBlend/case2_1_pre_trained.mp4"
                   style="
                     width: 100%;
                     border-radius: 8px;
@@ -133,10 +136,10 @@
               </div>
               <div class="column is-one-third">
                 <video 
-                  autoplay 
+                  id="video1-2"
                   muted 
                   playsinline 
-                  src="videos/LaTexBlend/case1_2_pre_trained.mp4"
+                  src="videos/LaTexBlend/case2_2_pre_trained.mp4"
                   style="
                     width: 100%;
                     border-radius: 8px;
@@ -147,10 +150,10 @@
               </div>
               <div class="column is-one-third">
                 <video 
-                  autoplay 
+                  id="video1-3"
                   muted 
                   playsinline 
-                  src="videos/LaTexBlend/case1_3_pre_trained.mp4"
+                  src="videos/LaTexBlend/case2_3_pre_trained.mp4"
                   style="
                     width: 100%;
                     border-radius: 8px;
@@ -160,20 +163,20 @@
                 </video>
               </div>
             </div>
-
+            
             <!-- 第二部分：视频网格（2行3列）标题 -->
             <div class="has-text-centered mt-5" style="margin-bottom: 0;">
-              <h4 class="title is-4" style="font-weight: 600;">LaTexBlend-V</h4>
+              <h4 class="title is-5" style="font-weight: 600;">LaTexBlend-V</h4>
             </div>
-
+            
             <!-- 视频第二行 -->
             <div class="columns is-centered" style="margin-bottom: 0;">
               <div class="column is-one-third">
                 <video 
-                  autoplay 
+                  id="video2-1"
                   muted 
                   playsinline 
-                  src="videos/LaTexBlend/case1_1.mp4"
+                  src="videos/LaTexBlend/case2_1.mp4"
                   style="
                     width: 100%;
                     border-radius: 8px;
@@ -184,10 +187,10 @@
               </div>
               <div class="column is-one-third">
                 <video 
-                  autoplay 
+                  id="video2-2"
                   muted 
                   playsinline 
-                  src="videos/LaTexBlend/case1_2.mp4"
+                  src="videos/LaTexBlend/case2_2.mp4"
                   style="
                     width: 100%;
                     border-radius: 8px;
@@ -198,10 +201,10 @@
               </div>
               <div class="column is-one-third">
                 <video 
-                  autoplay 
+                  id="video2-3"
                   muted 
                   playsinline 
-                  src="videos/LaTexBlend/case1_3.mp4"
+                  src="videos/LaTexBlend/case2_3.mp4"
                   style="
                     width: 100%;
                     border-radius: 8px;
@@ -211,6 +214,40 @@
                 </video>
               </div>
             </div>
+            
+            <script>
+              // 确保页面加载完成后，统一控制视频播放
+              window.addEventListener('DOMContentLoaded', () => {
+                // 获取每一列对应的视频
+                const videoRow1 = [
+                  document.getElementById('video1-1'),
+                  document.getElementById('video1-2'),
+                  document.getElementById('video1-3')
+                ];
+            
+                const videoRow2 = [
+                  document.getElementById('video2-1'),
+                  document.getElementById('video2-2'),
+                  document.getElementById('video2-3')
+                ];
+            
+                // 监听视频第一行的播放事件，确保第二行同步
+                videoRow1.forEach((video, index) => {
+                  video.addEventListener('canplaythrough', () => {
+                    // 当第一行的视频准备好后，设置它们为同步播放
+                    if (videoRow1.every(v => v.readyState >= 3)) {
+                      videoRow2[index].currentTime = video.currentTime; // 保证第二行的视频时间同步
+                      videoRow2[index].play();  // 播放第二行对应的视频
+                    }
+                  });
+                });
+            
+                // 播放按钮来开始所有视频的同步播放
+                document.getElementById('playButton').addEventListener('click', () => {
+                  videoRow1.forEach(video => video.play());
+                });
+              });
+            </script>
 
             <!-- 视频下方的小标题 Prompt -->
             <div class="has-text-centered mt-4">
@@ -250,7 +287,7 @@
 
             <!-- 第二部分：视频网格（2行3列）标题 -->
             <div class="has-text-centered mt-5" style="margin-bottom: 0;">
-              <h4 class="title is-4" style="font-weight: 600;">Pre-trained Model</h4>
+              <h4 class="title is-5" style="font-weight: 600;">Pre-trained Model</h4>
             </div>
 
             <!-- 视频第一行 -->
@@ -301,7 +338,7 @@
 
             <!-- 第二部分：视频网格（2行3列）标题 -->
             <div class="has-text-centered mt-5" style="margin-bottom: 0;">
-              <h4 class="title is-4" style="font-weight: 600;">LaTexBlend-V</h4>
+              <h4 class="title is-5" style="font-weight: 600;">LaTexBlend-V</h4>
             </div>
 
             <!-- 视频第二行 -->
